@@ -7,7 +7,8 @@ class LoginForm(forms.Form):
         error_messages = {'required':'Debe de capturar su correo'},
         widget = forms.EmailInput(
             attrs = {
-                'class':'form-control'
+                'class':'form-control',
+                'placeholder': 'Correo'
             }
         )
     )
@@ -16,7 +17,8 @@ class LoginForm(forms.Form):
         error_messages = {'required':'Debe de capturar su contraseña'},
         widget = forms.PasswordInput(
             attrs = {
-                'class':'form-control'
+                'class':'form-control',
+                'placeholder': 'Correo'
             }
         )
     )

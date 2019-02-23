@@ -1,0 +1,6 @@
+{% for field in form %}
+  {% for error in field.errors %}
+    $("#{{field.auto_id}}").addClass('invalid');
+    $("#{{field.auto_id}}").after("<small class='help-block help-block-error'>{{error}}</small>");
+  {% endfor %}
+{% endfor %}

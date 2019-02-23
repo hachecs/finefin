@@ -12,7 +12,8 @@ class SignUp(UserCreationForm):
         help_text = 'Este correo será su usuario para iniciar sesión',
         widget = forms.TextInput(
             attrs = {
-                'class':'form-control'
+                'class':'form-control',
+                'placeholder': 'Correo'
             }
         )
     )
@@ -21,16 +22,18 @@ class SignUp(UserCreationForm):
         error_messages = {'required':'Debe de capturar su nombre'},
         widget = forms.TextInput(
             attrs = {
-                'class':'form-control'
+                'class':'form-control',
+                'placeholder': 'Nombre'
             }
         )
     )
     last_name = forms.CharField(
-        label = 'Apellido',
+        label = 'Apellidos',
         error_messages = {'required':'Debe de capturar su apellido'},
         widget = forms.TextInput(
             attrs = {
-                'class':'form-control'
+                'class':'form-control',
+                'placeholder': 'Apellidos'
             }
         )
     )
@@ -39,7 +42,8 @@ class SignUp(UserCreationForm):
         error_messages = {'required':'Debe de capturar su contraseña'},
         widget = forms.PasswordInput(
             attrs = {
-                'class':'form-control'
+                'class':'form-control',
+                'placeholder': 'Contraseña'
             }
         )
     )
@@ -48,7 +52,8 @@ class SignUp(UserCreationForm):
         error_messages = {'required':'Debe de confirmar su contraseña'},
         widget = forms.PasswordInput(
             attrs = {
-                'class':'form-control'
+                'class':'form-control',
+                'placeholder': 'Confirmar contraseña'
             }
         )
     )

@@ -36,7 +36,7 @@ SITE_ID = 1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 INSTALLED_APPS = [
@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
     #-- Third party apps
     'sorl.thumbnail',
@@ -105,12 +106,18 @@ AUTH_USER_MODEL = 'accounts.User'
 LOGIN_URL = '/login/'
 
 AUTHENTICATION_BACKENDS = (
-    'django.contrib.auth.backends.ModelBackend',
     'core.authentication_email.EmailAuthBackend',
 )
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
-ACCOUNT_USERNAME_REQUIRED = False
+
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+#-- Sendmail Configuration
+EMAIL_HOST = config('EMAIL_HOST') #os.environ.get('EMAIL_HOST')
+EMAIL_HOST_USER = config('EMAIL_USER') #os.environ.get('EMAIL_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_PASSWORD') #os.environ.get('EMAIL_PASSWORD')
+EMAIL_PORT = config('EMAIL_PORT') #os.environ.get('EMAIL_PORT')
+EMAIL_USE_TLS = config('EMAIL_TLS')
+DEFAULT_FROM_EMAIL = config('EMAIL_DEFAULT') #os.environ.get('EMAIL_DEFAULT')
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -159,6 +166,5 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR,'static'),
 )
 STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'django.contrib.staticfiles.finders.FileSystemFinder',    
+    'django.contrib.staticfiles.finders.FileSystemFinder', 
 )

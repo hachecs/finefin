@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Registrate{% endblock title %}
+
+{% block content %}
+  <form action="." method="POST">
+  {% csrf_token %}
+  {% if form.errors %}
+  <div class="alert alert-warning">
+    <button class="close" data-close="alert"></button><i class="icon fa fa-warning"></i>
+    Tiene algunos detalles en su registro, favor de verificarlos.
+  </div>
+  {% endif %}
+  {% for field in form %}
+    {{field.label_tag}}
+    {{field}}
+    {{field.errors}}
+  {% endfor %}
+  <button class="btn btn-default" type="submit">Registrarse</button>
+  </form>
+{% endblock content %}

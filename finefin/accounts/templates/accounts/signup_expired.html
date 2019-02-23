@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="">
 
-    <title>FineFine :: Gracias por registrarte</title>
+    <title>FineFine :: Cuenta ya activada</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.css">
     <link rel="stylesheet" href="{{STATIC_URL}}css/styles.css">
@@ -20,10 +20,11 @@
             <div class="row justify-content-center align-items-center h-100">
                 <div class="col-sm-6">
                     <img src="{{STATIC_URL}}img/logo.png" class="img-fluid img-logo d-block mx-auto mb-5">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 24 24" class="icon thumb">
-                        <path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91l-.01-.01L23 10z" fill="#238d85"/>
+                    <svg class="icon icon-access-time" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" fill="#238d85"/>
+                        <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z" fill="#238d85"/>
                     </svg>
-                    <h4 class="text-center">Gracias por registrarte, te hemos enviado un enlace a tu correo para activar tu cuenta</h4>
+                    <h4 class="text-center">Tu cuenta ya ha sido activada anteriormente, ya puedes iniciar sesión</h4>
                     <a href="{% url 'login:login' %}" class="btn btn-lg btn-block btn-login mt-5">Iniciar sesión</a>
                 </div>
             </div>

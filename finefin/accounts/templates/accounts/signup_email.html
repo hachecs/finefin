@@ -1,0 +1,11 @@
+{% autoescape off %}
+    Hola <b>{{user.first_name}} {{user.last_name}}</b>
+
+    Por favor da click en el enlace de abajo para confirmar tu cuenta, y empezar a controlar tus ingresos y gastos.
+
+    http://{{domain}}:8000{% url 'accounts:signup_activate' uidb64=uid token=token %}
+
+    Atte.
+    FineFine Team
+
+{% endautoescape %}

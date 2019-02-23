@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "8256f5ee2451512f2cebdbd023599dc23cc60638b53d7618bd283ebcd15de242"
+            "sha256": "d9928ab8eeb66a1b029d2540971bdb86485e98ac5b00d8d19c1f1565bad5a212"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -16,6 +16,14 @@
         ]
     },
     "default": {
+        "banregio-api": {
+            "hashes": [
+                "sha256:891fbd18cc0ba4e2ba24684bd9cce8c77aa8a0d85ee346e68a2048bf8e497b73",
+                "sha256:b4cc331aeefeddc6721c36cea0baa24f44c76f839d61152437d6cfd9a59f3d11"
+            ],
+            "index": "pypi",
+            "version": "==0.1.1"
+        },
         "certifi": {
             "hashes": [
                 "sha256:47f9c83ef4c0c621eaef743f133f09fa8a74a9b75f037e8624f83bd1b6626cb7",
@@ -96,6 +104,13 @@
                 "sha256:d5f05e487007e29e03409f9398d074e158d920d36eb82eaf66fb1136b0c5374c"
             ],
             "version": "==2018.9"
+        },
+        "rauth": {
+            "hashes": [
+                "sha256:524cdbc1c28560eacfc9a9d40c59525eb8d00fdf07fbad86107ea24411477b0a",
+                "sha256:b18590fbd77bc3d871936bbdb851377d1b0c08e337b219c303f8fc2b5a42ef2d"
+            ],
+            "version": "==0.7.3"
         },
         "requests": {
             "hashes": [

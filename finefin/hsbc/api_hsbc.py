@@ -1,5 +1,6 @@
 from decouple import config
 import requests
+import json
 
 def makeCall(endpoint):
 	headers = {
@@ -10,6 +11,19 @@ def makeCall(endpoint):
 	}
 
 	response = requests.get(endpoint, headers=headers)
+	return response.json()
+
+def makePost(endpoint, data):
+	headers = {
+		'X-User':config('XUSER'),
+		'x-api-key':config('HSBCAPI'),
+		'X-Client':config('XCLIENT'),
+		'X-Password':config('XPASS'),
+		'content-type':'application/json'
+	}
+
+	response = requests.post(endpoint, headers=headers, data=data)
+	print(response.status_code, response.reason)
 	return response.json()
 
 def clientProfile(client_number):
@@ -44,7 +58,19 @@ def accountStatement(account_number, movements_number):
 		historical = response['historicalMovements']
 	return historical
 
-print(clientProfile(9001365))
-print(accountProfile(4085432003))
-print(accountBalance(4085432003))
-print(accountStatement(4085432003,15))
+def accountTransfer(source, destination, amount, description):
+
+
+	data = json.dumps({
+	  "transaction": {
+	    "sourceAccount":str(source),
+	    "destinationAccount": str(destination),
+	    "transactionAmount": '{}'.format(amount),
+	    "description": str(description)
+	  }
+	})
+	endpoint = '{}checking-accounts/transfer'.format(config('HSBCURL'))
+	response = makePost(endpoint, data)
+	return response
+
+print(accountTransfer(4085432003,4085432052,66.61,'Taxi'))

@@ -12,6 +12,7 @@ django-extensions = "==1.7.5"
 pillow = "==3.4.2"
 sorl-thumbnail = "==12.3"
 requests = "*"
+banregio-api = "*"
 
 [requires]
 python_version = "2.7"

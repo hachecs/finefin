@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
     <link rel="stylesheet" href="{{STATIC_URL}}css/styles.css">
     <link rel="stylesheet" href="{{STATIC_URL}}css/switchery.css">
+
+    {% block custom_css %} {% endblock %}
 </head>
 
 <body>
@@ -52,9 +54,7 @@
                     <a href="{% url 'login:logout' %}"><small>Cerrar sesión</small></a>
                 </div>
             </div>
-            <div class="row">
-              {% block content %}{% endblock %}
-            </div>
+            {% block content %}{% endblock %}
         </div>
     </div>
     <div class="modal" id="modal-box" tabindex="-1" role="dialog">

@@ -41,6 +41,8 @@ def authorization(request):
 def dashboard(request):    
     context = {}
 
+    context['scores'] = score_financiero('4085432086')
+
     return render(request,'login/dashboard.html',context)
 
 def authorization_logout(request):

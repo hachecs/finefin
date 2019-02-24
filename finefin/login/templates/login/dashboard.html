@@ -1,22 +1,63 @@
 {% extends 'base.html' %}
 
 {% block title %}Dashboard{% endblock title %}
+{% block custom_css %}
+<style type="text/css">
+    #chartdiv,
+#chartdiv2,
+#chartdiv3{
+  width: 100%;
+  height: 500px;
+}
+
+.fijos h1{
+    color: var(--dark-green);
+    font-size: 60px;
+}
+.fijos{
+    padding: 100px 0;
+}
+</style>
+{% endblock %}
 {% block content %}
-  <div class="col-sm-7">
-        <h4 class="text-center my-5"></h4>
-        <div id="chartdiv"></div>
-     </div>
-        <div class="col-sm-5">
-            <h4 class="text-center my-5">Salud financiera</h4>
-            <div id="chartdiv2"></div>
+  {{scores.score}}
+  <hr>
+  {{scores.salud_fin}}
+  <hr>
+  {{scores.balance_fin_mes}}
+  <div class="row fijos">
+        <div class="col-sm-4">
+            <h1 class="title text-center">$<span class="coun">{{scores.balance_actual|floatformat:2}}</span></h1>
+            <h5 class="text-center">Balance actual</h5>
         </div>
-     </div>
+        <div class="col-sm-4">
+            <h1 class="title text-center">$<span class="coun">{{scores.ingresos_promedio|floatformat:2}}</span></h1>
+            <h5 class="text-center">Ingreso promedio</h5>
+        </div>
+        <div class="col-sm-4">
+            <h1 class="title text-center">$<span class="coun">{{scores.gastos_promedio|floatformat:2}}</span></h1>
+            <h5 class="text-center">Gastos promedio</h5>
+        </div>
     </div>
-  </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div id="chartdiv3"></div>
+        </div>
+    </div>
+  <input type="hidden" value="{{scores.gastos_mensuales.0}}" class="gastos_mensuales">
+  <input type="hidden" value="{{scores.gastos_mensuales.1}}" class="gastos_mensuales">
+  <input type="hidden" value="{{scores.gastos_mensuales.2}}" class="gastos_mensuales">
+  <input type="hidden" value="{{scores.ahorro_mensual.0}}" class="ahorro_mensual">
+  <input type="hidden" value="{{scores.ahorro_mensual.1}}" class="ahorro_mensual">
+  <input type="hidden" value="{{scores.ahorro_mensual.2}}" class="ahorro_mensual">
+  <input type="hidden" value="{{scores.ingresos_mensuales.0}}" class="ingresos_mensuales">
+  <input type="hidden" value="{{scores.ingresos_mensuales.1}}" class="ingresos_mensuales">
+  <input type="hidden" value="{{scores.ingresos_mensuales.2}}" class="ingresos_mensuales">
 {% endblock %}
 
 {% block customjs %}
 <script>
+
 function am4themes_myTheme(target) {
     if (target instanceof am4core.ColorSet) {
         target.list = [
@@ -28,56 +69,6 @@ function am4themes_myTheme(target) {
     }
 }
 am4core.useTheme(am4themes_myTheme);
-
-var chart = am4core.create("chartdiv", am4charts.XYChart);
-chart.paddingRight = 20;
-
-var data = [];
-var visits = 100;
-var previousValue;
-
-for (var i = 0; i < 100; i++) {
-    visits += Math.round((Math.random() < 0.5 ? 1 : -1) * Math.random() * 10);
-
-    if (i > 0) {
-        if (previousValue <= visits) {
-            data[i - 1].color = chart.colors.getIndex(0);
-        } else {
-            data[i - 1].color = chart.colors.getIndex(5);
-        }
-    }
-
-    data.push({
-        date: new Date(2018, 0, i + 1),
-        value: visits
-    });
-    previousValue = visits;
-}
-
-chart.data = data;
-
-var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
-dateAxis.renderer.grid.template.location = 100;
-dateAxis.renderer.axisFills.template.disabled = true;
-dateAxis.renderer.ticks.template.disabled = true;
-
-var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-valueAxis.tooltip.disabled = true;
-valueAxis.renderer.minWidth = 35;
-valueAxis.renderer.axisFills.template.disabled = true;
-valueAxis.renderer.ticks.template.disabled = true;
-
-var series = chart.series.push(new am4charts.LineSeries());
-series.dataFields.dateX = "date";
-series.dataFields.valueY = "value";
-series.strokeWidth = 2;
-series.tooltipText = "value: {valueY}, day change: {valueY.previousChange}";
-
-// set stroke property field
-series.propertyFields.stroke = "color";
-
-chart.cursor = new am4charts.XYCursor();
-
 </script>
 <script>
 function am4themes_myTheme(target) {
@@ -96,28 +87,75 @@ am4core.useTheme(am4themes_myTheme);
 
 var iconPath = "M53.5,476c0,14,6.833,21,20.5,21s20.5-7,20.5-21V287h21v189c0,14,6.834,21,20.5,21 c13.667,0,20.5-7,20.5-21V154h10v116c0,7.334,2.5,12.667,7.5,16s10.167,3.333,15.5,0s8-8.667,8-16V145c0-13.334-4.5-23.667-13.5-31 s-21.5-11-37.5-11h-82c-15.333,0-27.833,3.333-37.5,10s-14.5,17-14.5,31v133c0,6,2.667,10.333,8,13s10.5,2.667,15.5,0s7.5-7,7.5-13 V154h10V476 M61.5,42.5c0,11.667,4.167,21.667,12.5,30S92.333,85,104,85s21.667-4.167,30-12.5S146.5,54,146.5,42 c0-11.335-4.167-21.168-12.5-29.5C125.667,4.167,115.667,0,104,0S82.333,4.167,74,12.5S61.5,30.833,61.5,42.5z"
 
-
-
-var chart = am4core.create("chartdiv2", am4charts.SlicedChart);
-chart.hiddenState.properties.opacity = 0;
-
-chart.data = [{
-    "name": "Algo",
-    "value": 30000,
-}, {
-    "name": "Otro algo",
-    "value": 50000
-}];
-
-var series = chart.series.push(new am4charts.PictorialStackedSeries());
-series.dataFields.value = "value";
-series.dataFields.category = "name";
-series.alignLabels = true;
-
-series.maskSprite.path = iconPath;
-series.ticks.template.locationX = 1;
-series.ticks.template.locationY = 0.5;
-
-series.labelsContainer.width = 200;
 </script>
+<script>
+        function am4themes_myTheme(target) {
+            if (target instanceof am4core.ColorSet) {
+                target.list = [
+                    am4core.color("#238d85"),
+                    am4core.color("#C2161F"),
+                    am4core.color("#1B3E84")
+                ];
+            }
+        }
+        am4core.useTheme(am4themes_myTheme);
+
+        var chart = am4core.create("chartdiv3", am4charts.XYChart);
+        chart.numberFormatter.numberFormat = "#''";
+        var gastos = $('.gastos_mensuales');
+        var ahorros = $('.ahorro_mensual');
+        var ingresos = $('.ingresos_mensuales');
+        data = [];
+        $.each(gastos,function(index,value){
+            gasto = gastos[index].value.replace(/\\n/g, "\\n").replace(/\\'/g, '\\"').replace(/\\"/g, '\\"').replace(/\\&/g, "\\&").replace(/\\r/g, "\\r").replace(/\\t/g, "\\t").replace(/\\b/g, "\\b").replace(/\\f/g, "\\f").replace(/[\u0000-\u001F]+/g,"").replace(/\'/g,'"');
+            //gasto = JSON.parse(gasto)
+            console.log(gasto)
+            ingreso = ingresos[index].value.replace(/\\n/g, "\\n").replace(/\\'/g, '\\"').replace(/\\"/g, '\\"').replace(/\\&/g, "\\&").replace(/\\r/g, "\\r").replace(/\\t/g, "\\t").replace(/\\b/g, "\\b").replace(/\\f/g, "\\f").replace(/[\u0000-\u001F]+/g,"").replace(/\'/g,'"');
+            ahorro = ahorros[index].value.replace(/\\n/g, "\\n").replace(/\\'/g, '\\"').replace(/\\"/g, '\\"').replace(/\\&/g, "\\&").replace(/\\r/g, "\\r").replace(/\\t/g, "\\t").replace(/\\b/g, "\\b").replace(/\\f/g, "\\f").replace(/[\u0000-\u001F]+/g,"").replace(/\'/g,'"');
+            data.push({
+                "mes":JSON.parse(gasto)['mes'],
+                "ingreso":JSON.parse(ingreso)['ingresos'],
+                "gasto":JSON.parse(gasto)['gastos'],
+                "ahorro":JSON.parse(ahorro)['ahorro']
+            });
+            console.log(data);
+        });
+        chart.data =data;
+
+        // Create axes
+        var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+        categoryAxis.dataFields.category = "mes";
+        categoryAxis.renderer.grid.template.location = 0;
+        categoryAxis.renderer.minGridDistance = 30;
+
+        var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+        valueAxis.title.text = "total";
+        valueAxis.title.fontWeight = 800;
+
+        // Create series
+        var series = chart.series.push(new am4charts.ColumnSeries());
+        series.dataFields.valueY = "ingreso";
+        series.dataFields.categoryX = "mes";
+        series.clustered = false;
+        series.tooltipText = "Ingreso mensual {valueY}";
+
+        var series2 = chart.series.push(new am4charts.ColumnSeries());
+        series2.dataFields.valueY = "gasto";
+        series2.dataFields.categoryX = "mes";
+        series2.clustered = false;
+        series2.columns.template.width = am4core.percent(65);
+        series2.tooltipText = "Gastos mensuales {valueY}";
+        
+        var series3 = chart.series.push(new am4charts.ColumnSeries());
+        series3.dataFields.valueY = "ahorro";
+        series3.dataFields.categoryX = "mes";
+        series3.clustered = false;
+        series3.columns.template.width = am4core.percent(50);
+        series3.tooltipText = "Ahorro {valueY}";
+
+        chart.cursor = new am4charts.XYCursor();
+        chart.cursor.lineX.disabled = true;
+        chart.cursor.lineY.disabled = true;
+
+    </script>
 {% endblock customjs %}

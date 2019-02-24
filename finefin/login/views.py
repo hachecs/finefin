@@ -40,9 +40,9 @@ def authorization(request):
 def dashboard(request):    
     context = {}
 
-    g = score_financiero('4085432086')
-    for k in g.keys():
-        print(k)
+    context['scores'] = score_financiero('4085432086')
+    for k in context['scores'].keys():
+        print(k, type(context['scores'][k]))
     return render(request,'login/dashboard.html',context)
 
 def authorization_logout(request):

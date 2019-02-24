@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
     <link rel="stylesheet" href="{{STATIC_URL}}css/styles.css">
     <link rel="stylesheet" href="{{STATIC_URL}}css/switchery.css">
+    <!-- Toastr style -->
+    <link href="{{STATIC_URL}}css/toastr.min.css" rel="stylesheet">
 
     {% block custom_css %} {% endblock %}
 </head>
@@ -72,6 +74,8 @@
     <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
     <!-- Switchery -->
     <script src="{{STATIC_URL}}js/switchery.js"></script>
+    <!-- Toastr -->
+    <script src="{{STATIC_URL}}js/toastr.min.js"></script>
     <script src="{{STATIC_URL}}js/personal.js"></script>
 
     {% block customjs %}{% endblock customjs %}

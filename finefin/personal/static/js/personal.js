@@ -26,7 +26,7 @@ $(document).ready(function() {
         dataType: 'json',
         success: function (data) {
           if (data.form_is_valid) {
-            toastr.success(data.message);
+            toastr.success("Información guardada satisfactoriamente");
             $("#modal-box").modal("hide");  // <-- Close the modal
           }
           else {

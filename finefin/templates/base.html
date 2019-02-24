@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
     <link rel="stylesheet" href="{{STATIC_URL}}css/styles.css">
+    <link rel="stylesheet" href="{{STATIC_URL}}css/switchery.css">
 </head>
 
 <body>
@@ -33,13 +34,19 @@
                     <p>Cuentas</p>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link js-create-personal" data-url="{% url 'personal:personal_add' %}">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <p>Con que cuentas ? </p>
+                </a>
+            </li>
+        </li>
         </ul>
     </div>
-
     <div class="wrapper">
         <div class="container-fluid">
             <div class="d-flex justify-content-end align-items-center"> 
-                <h4 class="m-0 mr-4">Bienvenido Jesús</h4>
+                <h5 class="m-0 mr-4">Bienvenido Jesús</h5>
                 <div class="w-25">
                     <a class="btn btn-block btn-login text-white" href="#">Registrar nuevas credenciales</a>
                     <a href="{% url 'login:logout' %}"><small>Cerrar sesión</small></a>
@@ -50,20 +57,31 @@
             </div>
         </div>
     </div>
+    <div class="modal" id="modal-box" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+          </div>
+        </div>
+      </div>
 
-
-
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
     <script src="https://www.amcharts.com/lib/4/core.js"></script>
     <script src="https://www.amcharts.com/lib/4/charts.js"></script>
     <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+    <!-- Switchery -->
+    <script src="{{STATIC_URL}}js/switchery.js"></script>
+    <script src="{{STATIC_URL}}js/personal.js"></script>
 
-    {% block customjs %}
+    {% block customjs %}{% endblock customjs %}
 
-    {% endblock customjs %}
+    <script>
+        $(document).ready(function(){
+            {% block docready %}
+            {% endblock docready %}
+        });
+    </script>
 
 </body>
 

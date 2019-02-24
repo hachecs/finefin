@@ -1,0 +1,73 @@
+
+      <form id="form_method" method="post" action="{{url_post}}" class="js-personal-form">
+        {% csrf_token %}
+        <div class="modal-header">
+          <h4 class="modal-title">Agregar información</h4>
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label id="{{form.health_insurance.id_for_label}}">{{form.health_insurance.label}}</label> 
+                {{form.health_insurance}}
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label id="{{form.home_insurance.id_for_label}}">{{form.home_insurance.label}}</label> 
+                {{form.home_insurance}}
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label id="{{form.have_credit_cards.id_for_label}}">{{form.have_credit_cards.label}}</label> 
+                {{form.have_credit_cards}}
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label id="{{form.quota_available.id_for_label}}">{{form.quota_available.label}}</label> 
+                {{form.quota_available}}
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label id="{{form.monthly_savings.id_for_label}}">{{form.monthly_savings.label}}</label> 
+                {{form.monthly_savings}}
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label id="{{form.monthly_savings_amount.id_for_label}}">{{form.monthly_savings_amount.label}}</label> 
+                {{form.monthly_savings_amount}}
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label id="{{form.investments_assets.id_for_label}}">{{form.investments_assets.label}}</label> 
+                {{form.investments_assets}}
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label id="{{form.value_investment.id_for_label}}">{{form.value_investment.label}}</label> 
+                {{form.value_investment}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer d-flex align-items-center justify-content-between">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+          <button class="btn btn-lg btn-login text-uppercase font-weight-bold" type="submit">Guardar</button>
+        </div>
+      </form>
+
+      <script>
+      $(document).ready(function(){
+        var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+        elems.forEach(function(html) {
+        var switchery = new Switchery(html);
+        });
+      });
+    </script>

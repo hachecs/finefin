@@ -1,7 +1,41 @@
-{% extends 'base_signup.html' %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block title %}Cuenta activada{% endblock title %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="">
 
-{% block content %}
-    <h2>Tu cuenta ha sido activada</h2>
-{% endblock content %}
+    <title>FineFine :: Registro completo</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.css">
+    <link rel="stylesheet" href="{{STATIC_URL}}css/styles.css">
+</head>
+
+<body>
+
+    <section class="full">
+        <div class="container h-100">
+            <div class="row justify-content-center align-items-center h-100">
+                <div class="col-sm-6">
+                    <img src="{{STATIC_URL}}img/logo.png" class="img-fluid img-logo d-block mx-auto mb-5">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 24 24" class="icon thumb">
+                        <path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91l-.01-.01L23 10z" fill="#238d85"/>
+                    </svg>
+                    <h4 class="text-center">Tu cuenta ha sido confirmada satisfactoriamente, ya puedes iniciar sesión</h4>
+                    <a href="{% url 'login:login' %}" class="btn btn-lg btn-block btn-login mt-5">Iniciar sesión</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+</body>
+
+</html>

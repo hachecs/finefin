@@ -54,7 +54,7 @@ body {
     margin-bottom: 1rem;
 }
 
-.form-label-group > input,
+.form-label-group > input, .modal-footer input,
 .form-label-group > label {
     padding: var(--input-padding-y) var(--input-padding-x);
     height: auto;

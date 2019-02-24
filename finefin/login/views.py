@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 import json
+from django.utils import timezone
 from django.contrib.auth import login,logout,authenticate
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render,redirect
@@ -40,9 +41,6 @@ def authorization(request):
 def dashboard(request):    
     context = {}
 
-    g = score_financiero('4085432086')
-    for k in g.keys():
-        print(k)
     return render(request,'login/dashboard.html',context)
 
 def authorization_logout(request):

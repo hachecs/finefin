@@ -5,27 +5,36 @@
     --dark-green: #006761;
     --light-green: #238d85;
 }
-:link{
+
+:link {
     color: var(--light-green);
 }
-body{
+
+body {
     font-family: 'Raleway', sans-serif;
+    position: relative;
+    padding-top: 50px;
 }
-.title{
+
+.title {
     font-family: 'Righteous', cursive;
 }
+
 .login,
 .image {
     min-height: 100vh;
 }
+
 .bg-image {
     background-image: url('../img/guy.jpg');
     background-size: cover;
     background-position: 90% center;
 }
-.img-logo{
+
+.img-logo {
     height: 100px;
 }
+
 .btn-login {
     font-size: 0.9rem;
     letter-spacing: 0.05rem;
@@ -34,7 +43,8 @@ body{
     background-color: var(--dark-green);
     color: #fff;
 }
-.btn-login:hover{
+
+.btn-login:hover {
     background-color: var(--light-green);
     color: #fff;
 }
@@ -97,77 +107,202 @@ body{
     font-size: 12px;
     color: #777;
 }
-.form-label-group input:focus{
+
+.form-label-group input:focus {
     border-color: var(--light-green);
     box-shadow: 0 0 0 0.2rem rgba(35, 141, 133, 0.25);
 }
-.full{
+
+.full {
     height: 100vh;
 }
 
 .icon {
-  width: 100px;
-  height: 100px;
-  display: block;
-  border-radius: 50%;
-  stroke: var(--light-green);
-  margin: 50px auto;
-  -webkit-animation: bounceIcon .17s ease-in-out;
-  animation: bounceIcon .17s ease-in-out;
-  -webkit-animation-delay: .25s;
-  animation-delay: .25s;
+    width: 100px;
+    height: 100px;
+    display: block;
+    border-radius: 50%;
+    stroke: var(--light-green);
+    margin: 50px auto;
+    -webkit-animation: bounceIcon .17s ease-in-out;
+    animation: bounceIcon .17s ease-in-out;
+    -webkit-animation-delay: .25s;
+    animation-delay: .25s;
 }
 
 .circle {
-  stroke-dasharray: 190;
-  stroke-dashoffset: 190;
-  stroke-width: 9;
-  stroke: var(--light-green) ;
-  fill: none;
-  -webkit-animation: drawCircle .2s linear;
-  animation: drawCircle .2s linear;
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
+    stroke-dasharray: 190;
+    stroke-dashoffset: 190;
+    stroke-width: 9;
+    stroke: var(--light-green);
+    fill: none;
+    -webkit-animation: drawCircle .2s linear;
+    animation: drawCircle .2s linear;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
 }
 
 .check {
-  stroke-width: 7;
-  stroke-dasharray: 120;
-  stroke-dashoffset: 120;
-  -webkit-animation: drawCheckmark .2s cubic-bezier(.89,.09,.91,.67);
-  animation: drawCheckmark .2s cubic-bezier(.89,.09,.91,.67) forwards;
-  -webkit-animation-delay: .2s;
-  animation-delay: .2s;
+    stroke-width: 7;
+    stroke-dasharray: 120;
+    stroke-dashoffset: 120;
+    -webkit-animation: drawCheckmark .2s cubic-bezier(.89, .09, .91, .67);
+    animation: drawCheckmark .2s cubic-bezier(.89, .09, .91, .67) forwards;
+    -webkit-animation-delay: .2s;
+    animation-delay: .2s;
 
-}
-.form-label-group input.invalid{
-    border-color: red;
-    box-shadow: 0 0 0 0.2rem rgba(255,0,0,0.25);
 }
 
 @keyframes drawCircle {
- 100% {
-    stroke-dashoffset: 0;
-  }
+    100% {
+        stroke-dashoffset: 0;
+    }
 }
 
 @keyframes drawCheckmark {
-  100% {
-    opacity: 1;
-    stroke-dashoffset: 0;
-  }
+    100% {
+        opacity: 1;
+        stroke-dashoffset: 0;
+    }
 }
 
 @keyframes bounceIcon {
-  0% {
-    transform: none;
-  }
-  50% {
-    transform: scale3D(.9, .9, 1);
-  }
-  100% {
-    transform: none;
-  }
+    0% {
+        transform: none;
+    }
+    50% {
+        transform: scale3D(.9, .9, 1);
+    }
+    100% {
+        transform: none;
+    }
+}
+
+.icon.thumb {
+    border-radius: 0;
+    stroke: transparent;
+}
+
+.form-label-group input.invalid {
+    border-color: red;
+    box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.25);
 }
 
 
+.img-logo-sm {
+    height: 50px;
+}
+
+.lines {
+    position: relative;
+}
+
+.lines:before,
+.lines:after {
+    position: absolute;
+    content: "";
+    height: 1px;
+    width: 40%;
+    background-color: var(--dark-green);
+    top: calc(50%);
+}
+
+.lines:before {
+    right: calc(50% + 10px);
+}
+
+.lines:after {
+    left: calc(50% + 10px);
+}
+
+.sidebar-menu {
+    position: fixed;
+    width: 70px;
+    background-color: var(--dark-green);
+    height: 100%;
+    transition: all .3s ease;
+    z-index: 99999;
+    top: 0;
+}
+
+.wrapper {
+    width: calc(100% - 80px);
+    float: right;
+}
+
+.sidebar-menu:hover {
+    width: 260px;
+}
+
+.sidebar-menu .nav .nav-item .nav-link > * {
+    display: inline-block;
+    transition: all .3s ease;
+    color: #fff;
+}
+.sidebar-menu .nav{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.sidebar-menu .nav .nav-item .nav-link {
+    margin: 0 10px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-menu .nav .nav-item .nav-link.active{
+    background-color: #fff;
+    border-radius: 8px;
+}
+.sidebar-menu .nav .nav-item .nav-link.active > *{
+    color: var(--light-green);
+}
+
+.sidebar-menu .nav .nav-item .nav-link > i {
+    font-size: 1.6rem;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar-menu .nav .nav-item .nav-link > p {
+    margin: -300px;
+    transition: margin .3s ease;
+    transition: opacity .1s ease .2s;
+    opacity: 0;
+}
+
+.sidebar-menu:hover .nav .nav-item .nav-link > p {
+    margin-left: 0px;
+    opacity: 1;
+}
+.sidebar-menu > img.img-sm{
+    padding-right: 5px;
+    padding-left: 5px;
+    margin: 20px 0;
+    height: 32px;
+}
+.sidebar-menu img.img-sm{
+    padding-right: 5px;
+    padding-left: 5px;
+    max-width: 70px;
+    margin: 20px 0;
+}
+.sidebar-menu img.img-lg{
+    height: 32px;
+    position: absolute;
+    top: 20px;
+    left: 1px;
+    opacity: 0;
+    transition: all .3s ease;
+}
+.sidebar-menu:hover img.img-lg{
+    opacity: 1;
+}
+#chartdiv,
+#chartdiv2{
+  width: 100%;
+  height: 500px;
+}

@@ -16,19 +16,7 @@
 <body>
     <div class="container-fluid">
         <div class="row no-gutter">
-            <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
-            <div class="col-md-8 col-lg-6">
-                <div class="login d-flex align-items-center py-5">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-9 col-lg-8 mx-auto">
-                                <img src="{{STATIC_URL}}img/logo.png" class="d-block mx-auto mb-5 img-fluid img-logo">
-                                {% block content %}{% endblock content %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          {% block content %}{% endblock content %}
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

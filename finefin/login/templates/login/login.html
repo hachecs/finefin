@@ -3,20 +3,32 @@
 {% block title %}Iniciar sesión{% endblock title %}
 
 {% block content %}
-    <form action="." method="POST">
-      {% csrf_token %}
-      <div class="form-label-group">
-        {{form.email}}
-        <label for="id_email">{{form.email.label}}</label>
-      </div>
-      <div class="form-label-group">
-        {{form.password}}
-        <label for="id_password">{{form.password.label}}</label>
-      </div>
-      {% if message %}<small class='help-block help-block-error'>{{message}}</small>{% endif %}
-      <button class="btn btn-lg btn-block btn-login text-uppercase font-weight-bold mt-5 mb-2" type="submit">Iniciar sesión</button>
-      <div class="text-center">
-        <a class="small" href="{% url 'accounts:signup' %}">¿No tienes cuenta todavia? Regístrate</a>
-      </div>
-    </form>
+<div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+<div class="col-md-8 col-lg-6">
+    <div class="login d-flex align-items-center py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 col-lg-8 mx-auto">
+                    <img src="{{STATIC_URL}}img/logo.png" class="d-block mx-auto mb-5 img-fluid img-logo">
+                    <form action="." method="POST">
+                      {% csrf_token %}
+                      <div class="form-label-group">
+                        {{form.email}}
+                        <label for="id_email">{{form.email.label}}</label>
+                      </div>
+                      <div class="form-label-group">
+                        {{form.password}}
+                        <label for="id_password">{{form.password.label}}</label>
+                      </div>
+                      {% if message %}<small class='help-block help-block-error'>{{message}}</small>{% endif %}
+                      <button class="btn btn-lg btn-block btn-login text-uppercase font-weight-bold mt-5 mb-2" type="submit">Iniciar sesión</button>
+                      <div class="text-center">
+                        <a class="small" href="{% url 'accounts:signup' %}">¿No tienes cuenta todavia? Regístrate</a>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

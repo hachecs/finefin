@@ -8,8 +8,8 @@ from django.utils.encoding import force_text
 from django.utils.http import urlsafe_base64_decode
 from core.tokens import account_activation_token
 
-from accounts.models import User
-from accounts.forms import SignUp
+from .models import User
+from .forms import SignUp
 
 # Create your views here.
 def signup(request):

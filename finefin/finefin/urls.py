@@ -21,7 +21,9 @@ urlpatterns = [
     #-- Login
     url(r'^',include(('login.urls','login'),namespace='login')),
     #-- Accounts
-    url(r'^signup/',include(('accounts.urls','accounts'),namespace='accounts'))
+    url(r'^signup/',include(('accounts.urls','accounts'),namespace='accounts')),
+    #-- Bank Credentials
+    url(r'^credentials/',include(('credentials.urls','credentials'),namespace='credentials'))
 ]
 #-- Static files * ONLY IN DEVELOP *
 if settings.DEBUG:

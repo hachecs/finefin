@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+import json
 from django.contrib.auth import login,logout,authenticate
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render,redirect
 
-from login.forms import LoginForm
+from hsbc.api_hsbc import score_financiero
+
+from .forms import LoginForm
 
 # Create your views here.
 def authorization(request):
@@ -19,8 +22,11 @@ def authorization(request):
             user = authenticate(email=context['form'].cleaned_data['email'],password=context['form'].cleaned_data['password'])
             if user:
                 login(request,user)
-
-                return redirect('login:dashboard')
+                #-- If user have bank_account
+                if request.user.bank_accounts.filter(status=True).exists():
+                    return redirect('login:login')
+                else:
+                    return redirect('credentials:banks_begin_add')
             else:
                 context['message'] = 'Usuario o contraseña incorrectos'
         else:
@@ -34,6 +40,9 @@ def authorization(request):
 def dashboard(request):    
     context = {}
 
+    g = score_financiero('4085432086')
+    for k in g.keys():
+        print(k)
     return render(request,'login/dashboard.html',context)
 
 def authorization_logout(request):

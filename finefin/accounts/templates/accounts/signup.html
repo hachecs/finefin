@@ -3,33 +3,45 @@
 {% block title %}Crea tu cuenta{% endblock title %}
 
 {% block content %}
-    <form action="." method="POST">
-      {% csrf_token %}
-      <div class="form-label-group">
-        {{form.email}}
-        <label for="id_email">{{form.email.label}}</label>
-      </div>
-      <div class="form-label-group">
-        {{form.first_name}}
-        <label for="id_first_name">{{form.first_name.label}}</label>
-      </div>
-      <div class="form-label-group">
-        {{form.last_name}}
-        <label for="id_last_name">{{form.last_name.label}}</label>
-      </div>
-      <div class="form-label-group">
-        {{form.password1}}
-        <label for="id_password1">{{form.password1.label}}</label>
-      </div>
-      <div class="form-label-group">
-        {{form.password2}}
-        <label for="id_password2">{{form.password2.label}}</label>
-      </div>
-      <button class="btn btn-lg btn-block btn-login text-uppercase font-weight-bold mt-5 mb-2" type="submit">Registrarse</button>
-      <div class="text-center">
-        <a class="small" href="{% url 'login:login' %}">¿Ya tienes cuenta? Inicia sesión</a>
-      </div>
-    </form>
+<div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+<div class="col-md-8 col-lg-6">
+    <div class="login d-flex align-items-center py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 col-lg-8 mx-auto">
+                    <img src="{{STATIC_URL}}img/logo.png" class="d-block mx-auto mb-5 img-fluid img-logo">
+                    <form action="." method="POST">
+                      {% csrf_token %}
+                      <div class="form-label-group">
+                        {{form.email}}
+                        <label for="id_email">{{form.email.label}}</label>
+                      </div>
+                      <div class="form-label-group">
+                        {{form.first_name}}
+                        <label for="id_first_name">{{form.first_name.label}}</label>
+                      </div>
+                      <div class="form-label-group">
+                        {{form.last_name}}
+                        <label for="id_last_name">{{form.last_name.label}}</label>
+                      </div>
+                      <div class="form-label-group">
+                        {{form.password1}}
+                        <label for="id_password1">{{form.password1.label}}</label>
+                      </div>
+                      <div class="form-label-group">
+                        {{form.password2}}
+                        <label for="id_password2">{{form.password2.label}}</label>
+                      </div>
+                      <button class="btn btn-lg btn-block btn-login text-uppercase font-weight-bold mt-5 mb-2" type="submit">Registrarse</button>
+                      <div class="text-center">
+                        <a class="small" href="{% url 'login:login' %}">¿Ya tienes cuenta? Inicia sesión</a>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
 {% block docready %}

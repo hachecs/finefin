@@ -54,7 +54,9 @@ INSTALLED_APPS = [
     #-- Custom apps
     'accounts',
     'login',
-    'core'
+    'credentials',
+    'core',
+    'hsbc'
 ]
 
 MIDDLEWARE = [

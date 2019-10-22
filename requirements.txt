@@ -1,21 +1,21 @@
--i https://pypi.org/simple
+-i https://pypi.org/simple/
 banregio-api==0.1.1
-certifi==2018.11.29
+certifi==2019.9.11
 chardet==3.0.4
 django-extensions==1.7.5
 django==1.11.18
 faker==1.0.2
 idna==2.8
-ipaddress==1.0.22 ; python_version == '2.7'
-numpy==1.16.1
+ipaddress==1.0.23 ; python_version == '2.7'
+numpy==1.16.5
 pandas==0.24.1
-pillow==3.4.2
+pillow==6.2.0
 python-dateutil==2.8.0
 python-decouple==3.1
-pytz==2018.9
+pytz==2019.3
 rauth==0.7.3
 requests==2.21.0
 six==1.12.0
 sorl-thumbnail==12.3
 text-unidecode==1.2
-urllib3==1.24.1
+urllib3==1.24.3

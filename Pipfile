@@ -9,7 +9,7 @@ verify_ssl = true
 django = "==1.11.18"
 python-decouple = "*"
 django-extensions = "==1.7.5"
-pillow = "==3.4.2"
+pillow = "==6.2.0"
 sorl-thumbnail = "==12.3"
 requests = "*"
 banregio-api = "*"
